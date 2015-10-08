@@ -56,7 +56,7 @@ if(!(Test-Path -Path "$target\node_modules")) {
     Pop-Location
 
     # cleanup temporary data
-    Write-Host "Removing temporary files..."
+    Write-Host $nl"Removing temporary files..."
     Remove-Item $temp -recurse
 }
 
@@ -66,6 +66,7 @@ function Read-Default($text, $defaultValue) { $prompt = Read-Host "$($text) [$($
 if (!(Select-String -path "$config\services.conf" -pattern "Identity=rfn-google-auth" -quiet)) {
 
 	$settings = @"
+
 
 [google-auth]
 Identity=rfn-google-auth
