@@ -30,14 +30,14 @@ if(!(Test-Path -Path "$target\node_modules")) {
     # check if npm has been downloaded already
 	if(!(Test-Path -Path "$temp\$npm")) {
         New-Item -Path "$temp" -Type directory -force | Out-Null
-		Invoke-WebRequest "https://nodejs.org/dist/npm/$npm" -OutFile "$temp\$npm"
+		Invoke-WebRequest "http://nodejs.org/dist/npm/$npm" -OutFile "$temp\$npm"
 	}
 
     # check if module has been downloaded
     if(!(Test-Path -Path "$target\src")) {
         New-Item -Path "$target\src" -Type directory | Out-Null
-        Invoke-WebRequest "https://raw.githubusercontent.com/braathen/qlik-auth-google/master/service.js" -OutFile "$target\src\service.js"
-        Invoke-WebRequest "https://raw.githubusercontent.com/braathen/qlik-auth-google/master/package.json" -OutFile "$target\package.json"
+        Invoke-WebRequest "http://raw.githubusercontent.com/braathen/qlik-auth-google/master/service.js" -OutFile "$target\src\service.js"
+        Invoke-WebRequest "http://raw.githubusercontent.com/braathen/qlik-auth-google/master/package.json" -OutFile "$target\package.json"
     }
 
     # check if npm has been unzipped already
@@ -50,6 +50,7 @@ if(!(Test-Path -Path "$target\node_modules")) {
     # install module with dependencies
 	Write-Host "Installing modules..."
     Push-Location "$target\src"
+    $env:NODE="$config\Node"
 	&$temp\npm.cmd config set spin=false
 	&$temp\npm.cmd --prefix "$target" install
     Pop-Location
