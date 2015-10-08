@@ -65,7 +65,7 @@ function Read-Default($text, $defaultValue) { $prompt = Read-Host "$($text) [$($
 # check if config has been added already
 if (!(Select-String -path "$config\services.conf" -pattern "Identity=rfn-google-auth" -quiet)) {
 
-	$settings = "
+	$settings = @"
 
 [google-auth]
 Identity=rfn-google-auth
@@ -81,7 +81,7 @@ user_directory=
 client_id=
 client_secret=
 redirect_uris=
-"
+"@
 	Add-Content "services.conf" $settings
 }
 
@@ -111,8 +111,6 @@ function Set-Config( $file, $key, $value )
         (Get-Content $file) `
             |Foreach-Object { [regex]::Replace($_,$regreplace,$regvalue)
          } | Set-Content $file
-    } else {
-        Add-Content -Path $file -Value $("`n" + $key + "=" + $value)          
     }
 }
 
