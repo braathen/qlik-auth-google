@@ -50,7 +50,7 @@ if(!(Test-Path -Path "$target\node_modules")) {
     # install module with dependencies
 	Write-Host "Installing modules..."
     Push-Location "$target\src"
-    $env:NODE="$config\Node"
+    $env:Path=$env:Path + ";$config\Node"
 	&$temp\npm.cmd config set spin=false
 	&$temp\npm.cmd --prefix "$target" install
     Pop-Location
