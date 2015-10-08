@@ -82,7 +82,7 @@ client_id=
 client_secret=
 redirect_uris=
 "@
-	Add-Content "services.conf" $settings
+	Add-Content "$config\services.conf" $settings
 }
 
 # look for client secret json file from Google
