@@ -23,6 +23,12 @@ Step by Step
 
 This will download and execute the setup script.
 
+When the downloading and installation of the modules including their dependencies are finished you will be prompted for some configuration options. If you copied the client_secret*.json file to the same directory above you can just confirm the questions regarding ClientID, Client Secret and Redirect URI by pressing return.
+
+   Note: The question regarding valid domain for email address is important. If you do not have your own domain, then it means that EVERYONE with a Google (gmail) account will be able to login to your Qlik Sense environment, so be careful! This will in many cases be a showstopper for this kind of solution.
+
+Setup is now done, restart the Qlik Sense Service Dispatcher service to activate the module.
+
 Virtual Proxy
 -------------
 
