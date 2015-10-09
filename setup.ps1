@@ -9,11 +9,6 @@ If (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     Break
 }
 
-$confirm = Read-Host "This script will install the Google Auth module, do you want to proceed? [Y/n]"
-if ($confirm -eq 'n') {
-  Break
-}
-
 # Set black background
 $Host.UI.RawUI.BackgroundColor = "Black"
 Clear-Host
@@ -26,6 +21,11 @@ $target="$config\Node\Google-Auth"
 
 # check if module is installed
 if(!(Test-Path -Path "$target\node_modules")) {
+
+    $confirm = Read-Host "This script will install the Google Auth module, do you want to proceed? [Y/n]"
+    if ($confirm -eq 'n') {
+      Break
+    }
 
     # check if npm has been downloaded already
 	if(!(Test-Path -Path "$temp\$npm")) {
