@@ -10,7 +10,7 @@ Step by Step
 2. On the APIs & auth -> Credentials page select Add credentials and choose OAuth 2.0 client ID.
 3. Select Web application and give it a name, authorized origin and redirect uri.
 
-    Note: The module we are installing need to run on it's own port and this is where you make that decision. The module will pick whatever port you use in the Authorized redirect URI. This port is also important to remember when configuring the Virtual Proxy. The Authorized redirect URI must end with /oauth2callback.
+       Note: The module we are installing need to run on it's own port and this is where you make that decision. The module will pick whatever port you use in the Authorized redirect URI. This port is also important to remember when configuring the Virtual Proxy. The Authorized redirect URI must end with /oauth2callback.
 
 4. A popup screen will appear with your new Client ID and Client secret. Ignore this and close the popup. Instead, click on the new credentials that you created.
 5. At the top of the page there is a Download JSON button. Click the button to download the json file.
@@ -19,7 +19,7 @@ Step by Step
 8. Change directory to C:\Temp or where you placed the json file (enter cd \Temp)
 9. Enter the below command exactly as it is (including parentheses):
 
-    (Invoke-WebRequest http://bit.ly/qlik-auth-google -OutFile setup.ps1) | .\setup.ps1
+       (Invoke-WebRequest http://bit.ly/qlik-auth-google -OutFile setup.ps1) | .\setup.ps1
 
 This will download and execute the setup script.
 
