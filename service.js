@@ -29,6 +29,7 @@ arg.forEach(function(a) {
       case "redirect_uris":
         settings.redirectUri = key[1];
         settings.port = url.parse(settings.redirectUri).port || 80
+        settings.path = url.parse(settings.redirectUri).path || "/oauth2callback"
         break;
   }
 });
@@ -48,7 +49,7 @@ app.get('/', function (req, res) {
   res.redirect(authUrl);
 });
 
-app.get('/oauth2callback', function (req, res) {
+app.get(settings.path, function (req, res) {
   //Get token from returned code parameter
   oauth2Client.getToken(req.query.code, function(err, token) {
     if (err) {res.send(err); return};
