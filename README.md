@@ -8,19 +8,13 @@ Step by Step
 
 1. In the Google Developer Console, first create a new project.
 2. On the APIs & auth -> Credentials page select Add credentials and choose OAuth 2.0 client ID.
-.. image:: https://raw.githubusercontent.com/braathen/qlik-auth-google/master/images/step1.png
-   :height: 678 px
-   :width: 352 px
-   :scale: 75 %
+![Google Developer Console](https://raw.githubusercontent.com/braathen/qlik-auth-google/master/images/step1.png)
 3. Select Web application and give it a name, authorized origin and redirect uri.
 > Note: The module we are installing need to run on it's own port and this is where you
 > make that decision. The module will pick whatever port you use in the Authorized
 > redirect URI. This port is also important to remember when configuring the Virtual
 > Proxy. The Authorized redirect URI must end with /oauth2callback.
-.. image:: https://raw.githubusercontent.com/braathen/qlik-auth-google/master/images/step2.png
-   :height: 616 px
-   :width: 509 px
-   :scale: 75 %
+![Callback Options](https://raw.githubusercontent.com/braathen/qlik-auth-google/master/images/step2.png)
 4. A popup screen will appear with your new Client ID and Client secret. Ignore this and close the popup. Instead, click on the new credentials that you created.
 5. At the top of the page there is a Download JSON button. Click the button to download the json file.
 6. Copy the client_secret*.json file to C:\Temp (for example).
@@ -48,10 +42,7 @@ Virtual Proxy
 
 1. Create a new Virtual Proxy in QMC
 2. For Authentication module redirect URI enter the same servername and port you used for Authorized redirect URI in the Google console.
-.. image:: https://raw.githubusercontent.com/braathen/qlik-auth-google/master/images/step3.png
-   :height: 803px
-   :width: 422 px
-   :scale: 75 %
+![Virtual Proxy](https://raw.githubusercontent.com/braathen/qlik-auth-google/master/images/step3.png)
 3. Finish the Virtual Proxy configuration. The proxy will restart and the new module should be good to go!
 
 Troubleshooting
