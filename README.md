@@ -50,7 +50,8 @@ Virtual Proxy
 Troubleshooting
 ---------------
 
-* If the module is unable to find a client certificate, please make sure the Qlik Sense Service Dispatcher service is running with the administrator account which was used to install Qlik Sense and that there is a QlikClient certificate in MMC->Certificates (Current User)->Personal->Certificates for this user.
+**Missing client certificate or key**
+If the module is unable to find a client certificate, please make sure the Qlik Sense Service Dispatcher service is running with the administrator account which was used to install Qlik Sense and that there is a QlikClient certificate in MMC->Certificates (Current User)->Personal->Certificates for this user.
 
 Summary & Future
 ----------------
