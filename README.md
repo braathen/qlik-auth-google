@@ -47,7 +47,8 @@ Virtual Proxy
 1. Create a new Virtual Proxy in QMC
 2. For Authentication module redirect URI enter the same servername and port you used for Authorized redirect URI in the Google console.
 ![Virtual Proxy](https://raw.githubusercontent.com/braathen/qlik-auth-google/master/images/step3.png)
-3. Finish the Virtual Proxy configuration. The proxy will restart and the new module should be good to go!
+3. Finish the Virtual Proxy configuration. The proxy will restart.
+4. Assign the Virtual Proxy to a relevant Proxy, and the new module should be good to go!
 
 Troubleshooting
 ---------------

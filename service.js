@@ -7,9 +7,23 @@ var google = require('googleapis');
 var api = google.oauth2('v2');
 var OAuth2 = google.auth.OAuth2;
 
+// Settings for creating https web server
+// var http = require('http');
+var https = require('https');
+var options = {
+  key: fs.readFileSync(__dirname + 'key.key'),
+  cert: fs.readFileSync(__dirname + 'crt.crt'),
+  ca: [
+    fs.readFileSync(__dirname + 'crt.crt'), 
+    fs.readFileSync(__dirname + 'anothercrt.crt'), 
+    fs.readFileSync(__dirname + 'anothercrt.crt')
+  ]
+};   // read certificates in here
+
 var app = express();
 var arg = process.argv.slice(2);
 var settings = {};
+
 
 arg.forEach(function(a) {
     var key = a.split("=");
@@ -81,7 +95,10 @@ app.get(settings.path, function (req, res) {
 });
 
 //Create web server
-var server = app.listen(settings.port, function () {});
+// var server = http.createServer(app).listen(settings.port, function() {});
+var server = https.createServer(options, app).listen(settings.port, function() {
+//  console.log('HTTPS started successfully');
+});
 
 String.prototype.endsWith = function(suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
